@@ -12,6 +12,21 @@ class FinanceController extends CommonController {
     public function index(){
 		$this->display();
 	}
+	public function tendency()
+	{
+		//最近七天
+		$days = '';
+		$days .= "'".date('m/d',strtotime('-6 days')) . "',";
+		$days .= "'".date('m/d',strtotime('-5 days')) . "',";
+		$days .= "'".date('m/d',strtotime('-4 days')) . "',";
+		$days .= "'".date('m/d',strtotime('-3 days')) . "',";
+		$days .= "'".date('m/d',strtotime('-2 days')) . "',";
+		$days .= "'".date('m/d',strtotime('-1 days')) . "',";
+		$days .= "'".date('m/d') . "'";
+		$this->assign('days',$days);
+		//var_dump($days);exit;
+		$this->display();
+	}
 
 	/**
      * 资产管理

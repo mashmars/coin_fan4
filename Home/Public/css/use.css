@@ -19,8 +19,10 @@
 .user .user-contain ul li a i {display:inline-block;margin-right:0.13889rem;width:0.66667rem;vertical-align:middle}
 .user .user-contain ul li a i.modify {height:0.55556rem;background:url(../images/mod.png) no-repeat;background-size:100% 100%}
 .user .user-contain ul li a i.pwsmanage {height:0.61111rem;background:url(../images/pwsmanage.png) no-repeat;background-size:100% 100%}
+.user .user-contain ul li a i.reco {height:0.61111rem;background:url(../images/reco.png) no-repeat;background-size:100% 100%}
 .user .user-contain ul li a i.binding {height:0.5rem;background:url(../images/binding.png) no-repeat;background-size:100% 100%}
 .user .user-contain ul li a i.assets {height:0.48611rem;background:url(../images/assets.png) no-repeat;background-size:100% 100%}
+.user .user-contain ul li a i.promote {height:0.48611rem;background:url(../images/promote.png) no-repeat;background-size:100% 100%}
 .user .user-contain ul li a i.charge-record {height:0.55556rem;background:url(../images/chre.png) no-repeat;background-size:100% 100%}
 .user .user-contain ul li a i.friend {height:0.55556rem;background:url(../images/friend.png) no-repeat;background-size:100% 100%}
 .user .user-contain ul li a i.currency {height:0.55556rem;background:url(../images/cure.png) no-repeat;background-size:100% 100%}

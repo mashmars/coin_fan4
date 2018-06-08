@@ -140,6 +140,10 @@ class LoginController extends Controller
     }
 
 	public function register(){
+		$refer = I('param.mobile');
+		$zone = I('param.zone',1);
+		$this->assign('refer',$refer);
+		$this->assign('zone',$zone);
 		$this->display();
 	}
 	//发送注册短信验证
@@ -186,7 +190,7 @@ class LoginController extends Controller
         $password = I('post.password');
         $paypassword = I('post.paypassword');
         $refer = I('post.refer');
-        $zone = I('post.zone');
+        $zone = I('post.zone',1);
 
         /**
          * 注册流程，
@@ -200,9 +204,7 @@ class LoginController extends Controller
         if(!$phone){
             echo ajax_return(0,L('phone_set_empty'));exit;
         }
-		if(!$refer){
-            echo ajax_return(0,L('refer_set_empty'));exit;
-        }
+		
        
         if(!$password){
             echo ajax_return(0,L('password_set_empty'));exit;
@@ -224,7 +226,7 @@ class LoginController extends Controller
         }
         $id = M('user')->where(array('phone'=>$refer))->getField('id');
 		if(!$id){
-			echo ajax_return(0,L('refer_is_wrong'));exit;
+			$pid = 0;
 		}else{
 			$pid = $id;
 		}

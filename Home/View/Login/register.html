@@ -28,13 +28,9 @@
 						<!--<i class="hided"></i>-->
 					</li>
 					<li><i class="icpwd1"></i><input type="password"placeholder="{:L('paypassword')}" id='paypassword'></li>
-					<li><i class="icrec"></i><input type="number" placeholder="{:L('refer')}" id='refer'></li>
+					<li><i class="icrec"></i><input type="number" placeholder="推荐人手机号" id='refer' value="{$refer}"></li>
 				</ul>
 				<div class="reg-box">
-					<p class="tc"id="area">
-						<span class="active" data-id='1'><i></i>{:L('zone1')}</span>
-						<span  data-id='2'><i></i>{:L('zone2')}</span>
-					</p>
 					
 					<p class="tc reg-btn"><button class="lhbg mod-btn" id='register'>{:L('submit')}</button></p>
 					<p class="tr logbtn"><a href="{:U('login/password')}">{:L('login')}</a></p>
@@ -54,17 +50,7 @@
 		}
 		
 		window.onload = function(){
-			var arSp = area.getElementsByTagName('span');
-				
-				for(var i=0;i<arSp.length;i++){
-					arSp[i].index = i;
-					arSp[i].onclick = function(){
-						for(var i=0;i<arSp.length;i++){
-							arSp[i].className = '';
-						}
-						this.className = 'active';
-					}
-				};
+			
 				$('.hided').click(function(){
 					var inval = $(this).siblings('input').val();
 					if($(this).parent().hasClass('active')){
@@ -92,7 +78,7 @@ $(function(){
 		var password = $('#password').val();
 		var paypassword = $('#paypassword').val();
 		var refer = $('#refer').val();
-		var zone = $('#area .active').data('id');
+		var zone = "{$zone}";
 		
 		if(phone == ''){
 			layer.msg("{:L('phone_set_empty')}",{time:2000,icon:5});
@@ -115,11 +101,7 @@ $(function(){
 			obj.prop('disabled',false);
 			return false;
 		}
-		if(refer == ''){
-			layer.msg("{:L('refer_set_empty')}",{time:2000,icon:5});
-			obj.prop('disabled',false);
-			return false;
-		}
+		
 		$.post("{:U('login/ajax_register')}",{phone:phone,realname:realname,password:password,paypassword:paypassword,refer:refer,zone:zone},function(data){
 			if(data.info == 'success'){
 				layer.msg(data.msg,{time:2000,icon:1},function(){

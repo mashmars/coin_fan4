@@ -10,7 +10,7 @@ class BaseController extends Controller {
             $this->redirect('login/login','',0,'请先登录系统');            
 		   //redirect('/admin.php/login/login');
         }
-		$auth = new Auth();
+		/*$auth = new Auth();
 		if(CONTROLLER_NAME !='Index' && CONTROLLER_NAME !='Login'){
 			if(!$auth->check(CONTROLLER_NAME.'/'.ACTION_NAME, session('adminid'))){
 				if(IS_AJAX){
@@ -20,7 +20,7 @@ class BaseController extends Controller {
 					exit('你没有操作权限');
 				}
 			}
-		}
+		}*/
     }
     
 }
